@@ -1,0 +1,75 @@
+{
+  "probes": [
+    {
+      "id": "a88108d8-83c8-4fee-8a02-320d7c7cd519",
+      "name": "WhatsApp Hyperjump",
+      "description": "https://whatsapp.hyperjump.tech",
+      "interval": 10,
+      "requests": [
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/test-webhook/start?token=monika-monitoring-token",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "POST"
+        },
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/confirm?token=monika-monitoring-token",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "POST"
+        },
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/delete?token=monika-monitoring-token",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "DELETE"
+        },
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/notify?token=monika-monitoring-token",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "POST"
+        },
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/register",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "POST"
+        },
+        {
+          "url": "https://whatsapp.hyperjump.tech/api/resend",
+          "body": {},
+          "timeout": 10000,
+          "headers": {
+            "X-Monika-Header": "monika-monitoring-header"
+          },
+          "method": "POST"
+        }
+      ],
+      "incidentThreshold": 5,
+      "recoveryThreshold": 5,
+      "alerts": [
+        {
+          "query": "response.status < 200 or response.status > 299",
+          "subject": "Target is not OK",
+          "message": "Target is not healthy. It has not been returning status code 2xx."
+        }
+      ]
+    }
+  ]
+}

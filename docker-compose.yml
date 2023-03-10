@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:10.3
+    container_name: monika-notif-engine-postgre
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=s3cr3t
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+volumes:
+  postgres:

@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x", "debian-openssl-3.0.x"]
+}
+
+model registrations {
+  phoneHash String    @id
+  name      String
+  token     String    @unique
+  expiredAt DateTime
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
+
+model users {
+  phoneHash String    @id
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime?
+}
+
+model webhook_token {
+  token     String    @id @default(uuid())
+  name      String
+  user      String
+  createdAt DateTime  @default(now())
+  resendAt  DateTime?
+}

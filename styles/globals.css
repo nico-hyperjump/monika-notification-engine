@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #1b1b1b;
+}
+
+.react-tel-input .flag-dropdown.open,
+.react-tel-input .flag-dropdown.open .selected-flag,
+.react-tel-input .country-list .country:hover,
+.react-tel-input .country-list .country.highlight,
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background-color: #3b3b3b !important;
+}
