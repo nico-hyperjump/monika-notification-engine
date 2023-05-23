@@ -1,6 +1,6 @@
 export default {
-  baseURL: process.env.BASE_URL || 'http://localhost',
-  publicBaseURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost',
+  baseURL: process.env.BASE_URL || 'http://localhost:3000',
+  publicBaseURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   port: process.env.PORT,
   whatsapp: {
     version: process.env.WHATSAPP_API_VERSION || 'v15.0',

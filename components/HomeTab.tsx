@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Link from 'next/link';
-import config from '../config';
 
 function TabItem({
   href,
@@ -28,7 +27,6 @@ function HomeTab() {
   const router = useRouter();
   const tab = router.query.tab;
   const tabs = ['register', 'resend-instruction', 'test-webhook'];
-  const baseUrl = config.publicBaseURL;
 
   useEffect(() => {
     if (tab === undefined && !router.pathname.includes('test-webhook'))
@@ -38,17 +36,17 @@ function HomeTab() {
   return (
     <div className="flex space-x-2">
       <TabItem
-        href={`${baseUrl}/?tab=${tabs[0]}`}
+        href={`/?tab=${tabs[0]}`}
         isActive={tab === tabs[0]}
         title="Register"
       />
       <TabItem
-        href={`${baseUrl}/?tab=${tabs[1]}`}
+        href={`/?tab=${tabs[1]}`}
         isActive={tab === tabs[1]}
         title="Resend Instruction"
       />
       <TabItem
-        href={`${baseUrl}/${tabs[2]}`}
+        href={`/${tabs[2]}`}
         isActive={router.pathname.includes('test-webhook')}
         title="Test Webhook"
       />
