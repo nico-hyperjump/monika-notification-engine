@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line
 const withImages = require('next-images');
 module.exports = withImages({
   distDir: 'build',

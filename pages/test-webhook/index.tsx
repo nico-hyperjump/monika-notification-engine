@@ -9,7 +9,7 @@ import {
   SelectOption,
   TextInput,
 } from '../../components';
-import HomeTab from '../../components/HomeTab';
+import HomeTab from '../../components/home-tab';
 import cfg from '../../config';
 import { actions } from '../../services/internal/actions';
 

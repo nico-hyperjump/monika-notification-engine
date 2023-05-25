@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -13,10 +14,10 @@ export default function Header({
   onMobileMenuCollapsedChange = () => true,
 }: HeaderProps): JSX.Element {
   return (
-    <header className="relative bg-monika-black text-white">
+    <header className="relative text-white bg-monika-black">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex py-6">
-          <div className="flex justify-start lg:w-auto my-auto ml-4">
+          <div className="flex justify-start my-auto ml-4 lg:w-auto">
             <Link href="https://monika.hyperjump.tech/">
               <a>
                 <img
@@ -30,7 +31,7 @@ export default function Header({
           <div className="ml-auto lg:hidden">
             <button
               type="button"
-              className="bg-monika-black focus:bg-white rounded-md w-8 p-2 inline-flex items-center justify-center text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+              className="inline-flex items-center justify-center w-8 p-2 text-gray-400 rounded-md bg-monika-black focus:bg-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
               aria-expanded="false"
               onClick={() =>
                 onMobileMenuCollapsedChange(!isMobileMenuCollapsed)
@@ -43,32 +44,32 @@ export default function Header({
               )}
             </button>
           </div>
-          <div className="hidden lg:flex items-center justify-end md:flex-1 lg:w-0">
+          <div className="items-center justify-end hidden lg:flex md:flex-1 lg:w-0">
             <ul className="flex flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-white font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-white hover:opacity-75"
                   href="https://monika.hyperjump.tech/overview">
                   <span className="ml-2">Docs</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-white font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-white hover:opacity-75"
                   href="https://monika-config.hyperjump.tech/">
                   <span className="ml-2">Config Generator</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-white font-sans underline font-bold leading-snug hover:opacity-75"
+                <Link
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-white underline hover:opacity-75"
                   href="/">
                   <span className="ml-2">WhatsApp Notifier</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-white font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-white hover:opacity-75"
                   href="https://github.com/hyperjumptech/monika/discussions"
                   rel="noreferrer"
                   target="_blank">
@@ -77,7 +78,7 @@ export default function Header({
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-white font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-white hover:opacity-75"
                   href="https://hyperjump.tech/"
                   rel="noreferrer"
                   target="_blank">
@@ -90,9 +91,9 @@ export default function Header({
                     href="https://github.com/hyperjumptech/monika"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center rounded-md shadow-sm text-base font-medium">
+                    className="flex items-center justify-center w-full text-base font-medium rounded-md shadow-sm">
                     <svg
-                      className="h-6 w-6 mr-2"
+                      className="w-6 h-6 mr-2"
                       fill="currentColor"
                       viewBox="0 0 24 24">
                       <path
@@ -114,36 +115,36 @@ export default function Header({
       <div
         className={
           isMobileMenuCollapsed
-            ? 'absolute top-0 inset-x-0 p-2 transition transform origin-top-right duration-200 ease-out lg:hidden z-50 mt-16 transition-all duration-500'
+            ? 'absolute top-0 inset-x-0 p-2 transform origin-top-right duration-200 ease-out lg:hidden z-50 mt-16 transition-all'
             : 'transition duration-100 ease-in hidden'
         }>
-        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-          <div className="py-6 px-5 space-y-6">
+        <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
+          <div className="px-5 py-6 space-y-6">
             <ul>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-monika-black font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-monika-black hover:opacity-75"
                   href="https://monika.hyperjump.tech/overview">
                   <span className="ml-2">Docs</span>
                 </a>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-monika-black font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-monika-black hover:opacity-75"
                   href="https://monika-config.hyperjump.tech/">
                   <span className="ml-2">Config Generator</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a
+                <Link
                   href="/"
-                  className="px-3 py-2 flex items-center text-monika-black font-sans underline font-bold leading-snug hover:opacity-75">
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug underline text-monika-black hover:opacity-75">
                   <span className="ml-2 undeline">WhatsApp Notifier</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-monika-black font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-monika-black hover:opacity-75"
                   href="https://github.com/hyperjumptech/monika/discussions"
                   rel="noreferrer"
                   target="_blank">
@@ -152,7 +153,7 @@ export default function Header({
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-monika-black font-sans font-bold leading-snug hover:opacity-75"
+                  className="flex items-center px-3 py-2 font-sans font-bold leading-snug text-monika-black hover:opacity-75"
                   href="https://hyperjump.tech/"
                   rel="noreferrer"
                   target="_blank">
@@ -165,9 +166,9 @@ export default function Header({
                     href="https://github.com/hyperjumptech/monika"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center rounded-md shadow-sm text-base font-medium">
+                    className="flex items-center justify-center w-full text-base font-medium rounded-md shadow-sm">
                     <svg
-                      className="h-6 w-6 mr-2"
+                      className="w-6 h-6 mr-2"
                       fill="currentColor"
                       viewBox="0 0 24 24">
                       <path
@@ -180,7 +181,7 @@ export default function Header({
                   </a>
                 </Button>
               </li>
-              <p className="mt-6 text-center text-base font-medium text-gray-500">
+              <p className="mt-6 text-base font-medium text-center text-gray-500">
                 © Hyperjump Technology {new Date().getFullYear()}
               </p>
             </ul>

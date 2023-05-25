@@ -1,4 +1,4 @@
-export default {
+const config = {
   baseURL: process.env.BASE_URL || 'http://localhost:3000',
   publicBaseURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
   port: process.env.PORT,
@@ -19,3 +19,5 @@ export default {
   monikaHeader: process.env.MONIKA_HEADER || 'monika-monitoring-header',
   monikaToken: process.env.MONIKA_TOKEN || 'monika-monitoring-token',
 };
+
+export default config;

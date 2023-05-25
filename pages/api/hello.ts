@@ -6,7 +6,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 const prisma = new PrismaClient();
 
-export default async (_: NextApiRequest, res: NextApiResponse) => {
+const handler = async (_: NextApiRequest, res: NextApiResponse) => {
   if (process.env.NODE_ENV === 'production') {
     res.status(200).json({ message: 'success' });
     return null;
@@ -14,3 +14,5 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
   const userList: users[] = await prisma.users.findMany();
   res.status(200).json(userList);
 };
+
+export default handler;

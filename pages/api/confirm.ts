@@ -9,7 +9,7 @@ import { saveUser } from '../../services/repositories/users';
 import { saveWebhookToken } from '../../services/repositories/webhook_token';
 import { sendInstructionMessage } from '../../services/whatsapp';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST')
     return res
       .status(400)
@@ -33,3 +33,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return handleErrors(error, res);
   }
 };
+
+export default handler;

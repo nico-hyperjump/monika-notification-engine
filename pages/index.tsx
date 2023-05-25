@@ -4,7 +4,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { Layout, TextInput, CountryPhoneInput, Button } from '../components';
-import HomeTab from '../components/HomeTab';
+import HomeTab from '../components/home-tab';
 
 const emptyNameErrorMessage = 'Name must not be empty';
 const emptyPhoneErrorMessage = 'Phone must not be empty';

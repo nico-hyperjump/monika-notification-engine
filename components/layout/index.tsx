@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
 import Head from 'next/head';
 import { Header, Footer } from '../';
@@ -39,11 +40,11 @@ export default function Layout({ children }: LayoutProps): JSX.Element {
 
 function Content({ children }: LayoutProps): JSX.Element {
   return (
-    <main className="flex flex-col w-full py-5 bg-monika-black text-white">
-      <div className="container mx-auto px-8 py-4 sm:px-6 lg:px-16 md:p-8 lg:p-16 z-10">
+    <main className="flex flex-col w-full py-5 text-white bg-monika-black">
+      <div className="container z-10 px-8 py-4 mx-auto sm:px-6 lg:px-16 md:p-8 lg:p-16">
         {children}
       </div>
-      <div className="mt-0 lg:-mt-32 z-0">
+      <div className="z-0 mt-0 lg:-mt-32">
         <img
           src="/assets/wave-monika.svg"
           className="object-fill w-screen"

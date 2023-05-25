@@ -23,15 +23,16 @@ function TabItem({
   );
 }
 
+const tabs = ['register', 'resend-instruction', 'test-webhook'];
+
 function HomeTab() {
   const router = useRouter();
   const tab = router.query.tab;
-  const tabs = ['register', 'resend-instruction', 'test-webhook'];
 
   useEffect(() => {
     if (tab === undefined && !router.pathname.includes('test-webhook'))
       router.replace(`?tab=${tabs[0]}`);
-  }, [tab]);
+  }, [tab, router]);
 
   return (
     <div className="flex space-x-2">

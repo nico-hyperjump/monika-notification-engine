@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { Layout, Button } from '../../components';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HomeTab from '../../components/HomeTab';
+import HomeTab from '../../components/home-tab';
 
 export default function TestWebhookSuccess(): JSX.Element {
   const router = useRouter();

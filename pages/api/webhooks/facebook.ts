@@ -5,7 +5,7 @@ import logger from '../../../services/internal/logger';
 import { createHmac } from 'crypto';
 import { saveWebhookLog } from '../../../services/repositories/webhook_logs';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     switch (req.method) {
       case 'GET':
@@ -91,3 +91,5 @@ export const config = {
     bodyParser: false,
   },
 };
+
+export default handler;

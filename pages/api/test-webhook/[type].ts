@@ -14,7 +14,7 @@ import { getUserByPhoneHash } from '../../../services/repositories/users';
 import { getWebhookByToken } from '../../../services/repositories/webhook_token';
 import { sendMessageTemplate } from '../../../services/whatsapp/sendMessageTemplate';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST')
     return res
       .status(400)
@@ -124,3 +124,5 @@ const validateMockRequest = (req: NextApiRequest): boolean => {
     return true;
   });
 };
+
+export default handler;

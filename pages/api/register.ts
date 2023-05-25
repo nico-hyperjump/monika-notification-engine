@@ -15,7 +15,7 @@ import {
   responseByMockRequest,
 } from '../../services/internal/monika-handler';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST')
     return res
       .status(400)
@@ -61,3 +61,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return handleErrors(error, res);
   }
 };
+
+export default handler;
