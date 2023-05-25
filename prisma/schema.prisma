@@ -34,3 +34,10 @@ model webhook_token {
   createdAt DateTime  @default(now())
   resendAt  DateTime?
 }
+
+model webhook_logs {
+  id        BigInt   @id @default(autoincrement())
+  logs      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
