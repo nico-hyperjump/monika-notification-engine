@@ -14,7 +14,10 @@
     "check-lint": "eslint . --ignore-path .gitignore",
     "check-format": "prettier --check . --ignore-path .gitignore",
     "static-analysis": "npm run check-format check-lint",
-    "seed": "npx prisma db seed --preview-feature"
+    "seed": "npx prisma db seed --preview-feature",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:generate": "prisma generate",
+    "vercel-build": "npm run prisma:migrate:deploy && npm run prisma:generate && npm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
