@@ -35,6 +35,7 @@ async function post(req: NextApiRequest, res: NextApiResponse) {
   // Check if x-hub-signature header is present
   const signatureFromReq = req.headers['X-Hub-Signature'];
   if (!signatureFromReq) {
+    logger.error('No X-Hub-Signature headers provided');
     return res
       .status(403)
       .json({ message: 'No X-Hub-Signature headers provided' });
@@ -47,6 +48,7 @@ async function post(req: NextApiRequest, res: NextApiResponse) {
 
   // Check if signature is valid
   if (expectedSignature !== signatureFromReq) {
+    logger.error('Signature does not match');
     return res.status(403).json({ message: 'Signature does not match' });
   }
 
