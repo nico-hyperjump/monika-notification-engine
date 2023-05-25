@@ -11,7 +11,7 @@ export const getUserByPhoneHash = async (phoneHash: string) => {
 };
 
 export const saveUser = async (reg: registrations) => {
-  const { phoneHash, name} = reg;
+  const { phoneHash, name } = reg;
   return prisma.users.create({
     data: {
       phoneHash,
