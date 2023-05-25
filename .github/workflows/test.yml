@@ -46,8 +46,8 @@ jobs:
       - name: Generate prisma client
         run: npm run prisma:generate
       - name: Copy env
-        run: cp .env.local.example .env.local
+        run: cp .env.local.example .env.local && cp .env.local.example .env
       - name: Build
-        run: npm run build
+        run: npm run vercel-build
       - name: Test
         run: npm run test
