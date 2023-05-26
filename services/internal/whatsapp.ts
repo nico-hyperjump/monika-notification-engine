@@ -2,6 +2,7 @@ import { AppError, commonHTTPErrors } from './app-error';
 import axios, { AxiosResponse } from 'axios';
 import cfg from '../../config';
 import { WhatsappResponse } from '../whatsapp/interfaces';
+import logger from './logger';
 
 const AxiosInstance = axios.create({
   baseURL: `https://graph.facebook.com/${cfg.whatsapp.version}`,
@@ -49,6 +50,11 @@ export const sendWhatsappMessageTemplate = async (
 
     return response;
   } catch (error) {
+    logger.error(
+      `Cannot send WhatsApp message, got: ${JSON.stringify(
+        error.response.data
+      )}`
+    );
     throw new AppError(
       commonHTTPErrors.serverError,
       error.response?.data?.message,
