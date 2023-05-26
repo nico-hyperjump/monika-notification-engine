@@ -47,20 +47,22 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const token = req.query.token as string;
     const data: NotifyRequestBody = req.body;
     if (!isActionAllowed(data.type)) {
-      throw new AppError(commonHTTPErrors.badRequest, 'Bad request.', true);
+      return res.status(commonHTTPErrors.badRequest).json({
+        message: 'Action not found',
+      });
     }
     const webhook = await getWebhookByToken(token);
     if (!webhook) {
-      throw new AppError(commonHTTPErrors.badRequest, 'Invalid token.', true);
+      return res.status(commonHTTPErrors.notFound).json({
+        message: 'Webhook token not found',
+      });
     }
 
     const user = await getUserByPhoneHash(webhook.user);
     if (!user) {
-      throw new AppError(
-        commonHTTPErrors.notAuthenticated,
-        'Unauthorized request.',
-        true
-      );
+      return res.status(commonHTTPErrors.notFound).json({
+        message: 'User not found',
+      });
     }
 
     const phone = user.phoneHash;
@@ -104,7 +106,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
       default:
-        throw new AppError(commonHTTPErrors.badRequest, 'Bad request.', true);
+        return res.status(commonHTTPErrors.badRequest).json({
+          message: 'Action not found',
+        });
     }
 
     return res.status(200).json({ message: 'SUCCESS' });
