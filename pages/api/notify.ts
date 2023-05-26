@@ -45,6 +45,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (isValidMockRequestWithToken(req)) return responseByMockRequest(res);
     const token = req.query.token as string;
+    if (!token) {
+      return res.status(commonHTTPErrors.notFound).json({
+        message: 'Token not found',
+      });
+    }
+
     const data: NotifyRequestBody = req.body;
     if (!isActionAllowed(data.type)) {
       return res.status(commonHTTPErrors.badRequest).json({
