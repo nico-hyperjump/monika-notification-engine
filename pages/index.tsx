@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { Layout, TextInput, CountryPhoneInput, Button } from '../components';
 import HomeTab from '../components/home-tab';
+import Notes from '../components/notes';
 
 const emptyNameErrorMessage = 'Name must not be empty';
 const emptyPhoneErrorMessage = 'Phone must not be empty';
@@ -134,6 +135,7 @@ export default function IndexPage(): JSX.Element {
             </Button>
           )}
         </div>
+        <Notes />
       </div>
     </Layout>
   );

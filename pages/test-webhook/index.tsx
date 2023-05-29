@@ -12,6 +12,7 @@ import {
 import HomeTab from '../../components/home-tab';
 import cfg from '../../config';
 import { actions } from '../../services/internal/actions';
+import Notes from '../../components/notes';
 
 const explanation = {
   [actions.start]:
@@ -122,6 +123,7 @@ export default function IndexPage(): JSX.Element {
             Test
           </Button>
         </div>
+        <Notes />
       </div>
     </Layout>
   );

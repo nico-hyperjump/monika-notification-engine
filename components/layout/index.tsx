@@ -44,7 +44,7 @@ function Content({ children }: LayoutProps): JSX.Element {
       <div className="container z-10 px-8 py-4 mx-auto sm:px-6 lg:px-16 md:p-8 lg:p-16">
         {children}
       </div>
-      <div className="z-0 mt-0 lg:-mt-32">
+      <div className="z-0 mt-0 lg:-mt-48">
         <img
           src="/assets/wave-monika.svg"
           className="object-fill w-screen"
