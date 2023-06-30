@@ -52,12 +52,12 @@ export const sendWhatsappMessageTemplate = async (
   } catch (error) {
     logger.error(
       `Cannot send WhatsApp message, got: ${JSON.stringify(
-        error.response.data
+        error?.response?.data || error
       )}`
     );
     throw new AppError(
       commonHTTPErrors.serverError,
-      error.response?.data?.message,
+      error?.response?.data?.message,
       true
     );
   }
