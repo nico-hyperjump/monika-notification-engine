@@ -53,9 +53,14 @@ export class AppError extends Error {
 }
 
 export const handleErrors = (error: AppError, res: NextApiResponse) => {
-  logger.error(error.stack);
+  if (error.httpErrorCode >= 500) {
+    logger.error(error.stack);
+  }
+
   if (!error.isCustomError) {
-    logger.error(error.message);
+    if (error.httpErrorCode >= 500) {
+      logger.error(error.message);
+    }
     return res.status(500).json({ message: 'Oops something went wrong!' });
   }
 
