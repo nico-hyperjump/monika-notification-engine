@@ -1,5 +1,5 @@
 import { AppError, commonHTTPErrors } from './app-error';
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import cfg from '../../config';
 import { WhatsappResponse } from '../whatsapp/interfaces';
 import logger from './logger';
@@ -16,7 +16,7 @@ export const sendWhatsappMessageTemplate = async (
   to: string
 ): Promise<AxiosResponse<WhatsappResponse>> => {
   try {
-    const response = await AxiosInstance.post(
+    return await AxiosInstance.post(
       `/${cfg.whatsapp.phoneID}/messages`,
       {
         messaging_product: 'whatsapp',
@@ -46,9 +46,15 @@ export const sendWhatsappMessageTemplate = async (
           'Content-Type': 'application/json',
         },
       }
-    );
+    ).catch((e: AxiosError) => {
+      if (e.code === 'ECONNABORTED' && e.message.includes('timeout')) {
+        logger.error('Request timed out');
+      } else {
+        logger.error(e.message);
+      }
 
-    return response;
+      return { ...e.response };
+    });
   } catch (error) {
     logger.error(
       `Cannot send WhatsApp message, got: ${JSON.stringify(
