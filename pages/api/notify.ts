@@ -19,7 +19,11 @@ type NotifyRequestBody =
       ip_address: string;
     }
   | {
-      type: actions.incident | actions.recovery;
+      type:
+        | actions.incident
+        | actions.recovery
+        | actions.incident_symon
+        | actions.recovery_symon;
       alert: string;
       url: string;
       time: string;
@@ -84,6 +88,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         break;
       }
 
+      case actions.incident_symon:
+      case actions.recovery_symon:
       case actions.incident:
       case actions.recovery: {
         await sendMessageTemplate({

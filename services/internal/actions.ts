@@ -7,6 +7,8 @@ export enum actions {
   start = 'start',
   incident = 'incident',
   recovery = 'recovery',
+  incident_symon = 'incident-symon',
+  recovery_symon = 'recovery-symon',
   terminate = 'terminate',
   delete_user = 'delete_user',
   status_update = 'status-update',
