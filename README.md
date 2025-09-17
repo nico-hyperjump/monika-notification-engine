@@ -1,3 +1,5 @@
+The new repo is in https://github.com/hyperjumptech/whatsapp.hyperjump.tech
+
 # Monika Notification Engine
 
 Notification center for Monika users. A web app where user can register their WhatsApp phone number to receive notification from Monika.
